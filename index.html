@@ -8,46 +8,189 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07080d;--card:#0e1019;--text:#EEF0F6;--dim:#9aa3b8;--faint:#626b80;--border:rgba(255,255,255,.1);}
-@media(prefers-color-scheme:light){:root{--bg:#f3f1ec;--card:#fffdf8;--text:#16171d;--dim:#4d5465;--faint:#7b8396;--border:rgba(0,0,0,.12);}.card{--c:var(--l)}}
+:root{--bg:#05060c;--card:rgba(255,255,255,.04);--text:#EEF0F6;--dim:#9aa3b8;--faint:#626b80;--border:rgba(255,255,255,.1);--grid:rgba(255,255,255,.04);--orb:.35}
+@media(prefers-color-scheme:light){:root{--bg:#f4f2ed;--card:rgba(255,255,255,.75);--text:#16171d;--dim:#4d5465;--faint:#7b8396;--border:rgba(0,0,0,.12);--grid:rgba(0,0,0,.05);--orb:.22}.card{--c:var(--l)!important}}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6;min-height:100vh}
-.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
-header{padding:72px 0 36px}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);letter-spacing:.08em}
-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,6vw,60px);line-height:1.1;margin:12px 0 14px}
-header p{color:var(--dim);max-width:620px;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;padding-bottom:40px}
-.card{--c:var(--d);position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--card);border:1px solid var(--border);border-radius:18px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
-.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--c)}
-.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:var(--c);box-shadow:0 12px 32px color-mix(in srgb,var(--c) 22%,transparent);outline:none}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6;min-height:100vh;overflow-x:hidden}
+/* background */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:var(--orb);animation:drift 18s ease-in-out infinite}
+.o1{width:460px;height:460px;background:#8FA6FF;top:-120px;left:-100px}
+.o2{width:400px;height:400px;background:#FF5A6E;top:30%;right:-140px;animation-delay:-6s}
+.o3{width:420px;height:420px;background:#3EE08F;bottom:-160px;left:25%;animation-delay:-11s}
+.o4{width:300px;height:300px;background:#FFB347;top:55%;left:-100px;animation-delay:-3s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-50px) scale(1.15)}}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+/* hero */
+header{padding:84px 0 28px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);border:1px solid var(--border);background:var(--card);padding:6px 14px;border-radius:99px;backdrop-filter:blur(8px)}
+.dot{width:7px;height:7px;border-radius:50%;background:#3EE08F;box-shadow:0 0 0 0 #3EE08F;animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,7vw,72px);line-height:1.08;margin:22px 0 18px;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,#8FA6FF,#3EE08F,#FFB347,#FF5A6E,#8FA6FF);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+header p.lead{color:var(--dim);max-width:600px;margin:0 auto;font-size:18px}
+.type{margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--dim);min-height:26px}
+.type b{color:var(--text);font-weight:500}
+.caret{display:inline-block;width:8px;height:17px;background:var(--text);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cta{display:inline-block;margin-top:28px;padding:13px 28px;border-radius:14px;background:var(--text);color:var(--bg);font-family:'Space Grotesk',sans-serif;font-weight:600;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(143,166,255,.35)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:46px 0 34px}
+.stat{text-align:center;padding:18px 8px;border:1px solid var(--border);background:var(--card);border-radius:16px;backdrop-filter:blur(8px)}
+.stat b{display:block;font-family:'Space Grotesk',sans-serif;font-size:32px;line-height:1.1}
+.stat span{font-size:13px;color:var(--faint)}
+/* marquee */
+.marq{overflow:hidden;border-block:1px solid var(--border);padding:12px 0;margin-bottom:46px;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:34px;width:max-content;animation:scroll 32s linear infinite;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--faint);white-space:nowrap}
+.track span:nth-child(5n+1){color:#8FA6FF}.track span:nth-child(5n+2){color:#6FC3FF}.track span:nth-child(5n+3){color:#FF5A6E}.track span:nth-child(5n+4){color:#3EE08F}.track span:nth-child(5n){color:#FFB347}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* cards */
+.sec-t{font-family:'Space Grotesk',sans-serif;font-size:28px;margin-bottom:6px}
+.sec-s{color:var(--dim);margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-bottom:60px}
+.card{--c:var(--d);grid-column:span 2;position:relative;display:flex;flex-direction:column;gap:10px;padding:26px;background:var(--card);border:1px solid var(--border);border-radius:20px;text-decoration:none;color:inherit;overflow:hidden;backdrop-filter:blur(10px);transition:transform .3s,border-color .3s,box-shadow .3s;opacity:0;transform:translateY(24px)}
+.card.in{opacity:1;transform:none;transition:opacity .7s,transform .7s,border-color .3s,box-shadow .3s}
+.card:nth-child(n+4){grid-column:span 3}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 22%,transparent),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--c)}
+.card.in:hover,.card:focus-visible{transform:translateY(-6px);border-color:var(--c);box-shadow:0 18px 40px color-mix(in srgb,var(--c) 25%,transparent);outline:none}
+.top{display:flex;justify-content:space-between;align-items:center}
 .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c)}
-.card h2{font-family:'Space Grotesk',sans-serif;font-size:22px}
-.card p{color:var(--dim);font-size:14.5px;flex:1}
-.meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--faint)}
-.go{color:var(--c);font-weight:600;font-family:'Space Grotesk',sans-serif}
-footer{border-top:1px solid var(--border);padding:24px 0 40px;color:var(--faint);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
-footer a{color:var(--dim)}
+.ico{width:46px;height:46px;color:var(--c)}
+.ico *{vector-effect:non-scaling-stroke}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:23px;line-height:1.25}
+.card p{color:var(--dim);font-size:14.5px;flex:1;position:relative}
+.meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--faint);position:relative}
+.go{color:var(--c);font-weight:600;font-family:'Space Grotesk',sans-serif;transition:transform .25s}
+.card:hover .go{transform:translateX(6px)}
+.bar{height:4px;border-radius:4px;background:var(--border);overflow:hidden;position:relative}
+.bar i{display:block;height:100%;width:0;background:var(--c);transition:width 1.4s ease .3s}
+.card.in .bar i{width:var(--w)}
+/* icon animations */
+.a-spin{animation:spin 8s linear infinite;transform-origin:center}@keyframes spin{to{transform:rotate(360deg)}}
+.a-bob{animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-4px)}}
+.a-dash{stroke-dasharray:6 5;animation:dash 1.2s linear infinite}@keyframes dash{to{stroke-dashoffset:-22}}
+.a-pulse{animation:pls 2s ease-in-out infinite}@keyframes pls{50%{opacity:.25}}
+/* features */
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:60px}
+.f{padding:22px;border:1px solid var(--border);border-radius:18px;background:var(--card);backdrop-filter:blur(8px);transition:transform .3s,border-color .3s}
+.f:hover{transform:translateY(-4px);border-color:var(--dim)}
+.f em{font-style:normal;font-size:26px;display:block;margin-bottom:8px}
+.f h3{font-family:'Space Grotesk',sans-serif;font-size:17px;margin-bottom:4px}
+.f p{font-size:14px;color:var(--dim)}
+/* footer */
+footer{border-top:1px solid var(--border);padding:28px 0 44px;color:var(--faint);font-size:13.5px;text-align:center;display:grid;gap:8px}
+footer a{color:var(--text);text-decoration:none;border-bottom:1px dashed var(--faint)}
+footer a:hover{border-bottom-style:solid}
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}.card,.card:nth-child(n+4){grid-column:span 1}.card:last-child{grid-column:span 2}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.feat{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card,.card:nth-child(n+4),.card:last-child{grid-column:span 1}header{padding-top:56px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}.bar i{width:var(--w)}}
 </style>
 </head>
 <body>
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div></div>
 <div class="wrap">
 <header>
-  <div class="eyebrow">// study hub</div>
-  <h1>Study. Understand. Pretend you started early.</h1>
-  <p>Free courses with simple explanations and diagrams. No login, no ads. Pick a subject and begin, the syllabus is not going to read itself.</p>
+  <span class="pill"><span class="dot"></span>5 courses live · 179 topics · free forever</span>
+  <h1>Study. Understand.<br><span class="grad">Pretend you started early.</span></h1>
+  <p class="lead">Free courses with simple explanations and diagrams. No login, no ads. Pick a subject and begin, the syllabus is not going to read itself.</p>
+  <div class="type"><span id="tw"></span><span class="caret"></span></div>
+  <a class="cta" href="#courses">Pick a subject ↓</a>
 </header>
+
+<section class="stats" aria-label="Numbers">
+  <div class="stat"><b data-n="5">0</b><span>Courses</span></div>
+  <div class="stat"><b data-n="179">0</b><span>Topics</span></div>
+  <div class="stat"><b data-n="30">0</b><span>Units</span></div>
+  <div class="stat"><b data-n="0">0</b><span>Ads or logins</span></div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="trk"></div></div>
+
+<section id="courses">
+<h2 class="sec-t">Choose your battle</h2>
+<p class="sec-s">Five subjects, one navbar, zero excuses.</p>
 <main class="grid">
-  <a class="card" style="--d:#8FA6FF;--l:#4a5fe0" href="oops.html"><span class="tag">// 01</span><h2>OOPs in Java</h2><p>Classes, inheritance, polymorphism, collections and more. Learn why everything is an object, except the things that are not.</p><div class="meta"><span>47 topics</span><span class="go">Open →</span></div></a>
-  <a class="card" style="--d:#6FC3FF;--l:#0f6fb5" href="dsa.html"><span class="tag">// 02</span><h2>Data Structures &amp; Algorithms</h2><p>Arrays to graphs and DP, with Java, C++ and C code. Because "it works on my machine" is not a time complexity.</p><div class="meta"><span>39 topics</span><span class="go">Open →</span></div></a>
-  <a class="card" style="--d:#FF5A6E;--l:#c2253a" href="os.html"><span class="tag">// 03</span><h2>Operating Systems</h2><p>Processes, scheduling, deadlocks, memory and files. Learn how your computer juggles 100 tabs while you juggle zero plans.</p><div class="meta"><span>37 topics</span><span class="go">Open →</span></div></a>
-  <a class="card" style="--d:#3EE08F;--l:#16844a" href="de.html"><span class="tag">// 04</span><h2>Digital Electronics</h2><p>Gates, K-maps, flip-flops and memories. Everything is 0 or 1, unlike your attendance. Out-of-syllabus topics are marked.</p><div class="meta"><span>28 topics</span><span class="go">Open →</span></div></a>
-  <a class="card" style="--d:#FFB347;--l:#b36a00" href="uhv.html"><span class="tag">// 05</span><h2>Universal Human Values</h2><p>Course 105306, six units on self, family, society, nature and ethics. Yes, you still need to write the answers in the exam.</p><div class="meta"><span>28 topics</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#8FA6FF;--l:#4a5fe0" href="oops.html">
+    <div class="top"><span class="tag">// 01</span>
+    <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="a-bob" d="M18 14 8 24l10 10"/><path class="a-bob" style="animation-delay:-1.5s" d="M30 14l10 10-10 10"/><path class="a-pulse" d="M27 10 21 38"/></svg></div>
+    <h2>OOPs in Java</h2>
+    <p>Classes, inheritance, polymorphism, collections and more. Learn why everything is an object, except the things that are not.</p>
+    <div class="bar" style="--w:100%"><i></i></div>
+    <div class="meta"><span>47 topics · 6 units</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#6FC3FF;--l:#0f6fb5" href="dsa.html">
+    <div class="top"><span class="tag">// 02</span>
+    <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path class="a-dash" d="M24 13 13 31M24 13l11 18"/><circle cx="24" cy="12" r="5" fill="currentColor"/><circle cx="12" cy="33" r="5"/><circle cx="36" cy="33" r="5"/></svg></div>
+    <h2>Data Structures &amp; Algorithms</h2>
+    <p>Arrays to graphs and DP, with Java, C++ and C code. Because "it works on my machine" is not a time complexity.</p>
+    <div class="bar" style="--w:100%"><i></i></div>
+    <div class="meta"><span>39 topics · 6 units</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#FF5A6E;--l:#c2253a" href="os.html">
+    <div class="top"><span class="tag">// 03</span>
+    <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><g class="a-spin"><circle cx="24" cy="24" r="8"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4"/></g></svg></div>
+    <h2>Operating Systems</h2>
+    <p>Processes, scheduling, deadlocks, memory and files. Learn how your computer juggles 100 tabs while you juggle zero plans.</p>
+    <div class="bar" style="--w:100%"><i></i></div>
+    <div class="meta"><span>37 topics · 6 units</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#3EE08F;--l:#16844a" href="de.html">
+    <div class="top"><span class="tag">// 04</span>
+    <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14h10M8 34h10M18 10v28h8c8 0 14-6 14-14s-6-14-14-14h-8"/><path class="a-dash" d="M40 24h4"/></svg></div>
+    <h2>Digital Electronics</h2>
+    <p>Gates, K-maps, flip-flops and memories. Everything is 0 or 1, unlike your attendance. Out-of-syllabus topics are marked.</p>
+    <div class="bar" style="--w:100%"><i></i></div>
+    <div class="meta"><span>28 topics · 6 units</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#FFB347;--l:#b36a00" href="uhv.html">
+    <div class="top"><span class="tag">// 05</span>
+    <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="a-pulse" d="M24 40S7 30 7 18a9 9 0 0 1 17-4 9 9 0 0 1 17 4c0 12-17 22-17 22z"/></svg></div>
+    <h2>Universal Human Values</h2>
+    <p>Course 105306, six units on self, family, society, nature and ethics. Yes, you still need to write the answers in the exam.</p>
+    <div class="bar" style="--w:100%"><i></i></div>
+    <div class="meta"><span>28 topics · 6 units</span><span class="go">Open →</span></div></a>
 </main>
+</section>
+
+<section>
+<h2 class="sec-t">Why it is not boring</h2>
+<p class="sec-s">Built by someone who also hates reading walls of text, and sleeping on time.</p>
+<div class="feat">
+  <div class="f"><em>🎞️</em><h3>Animated diagrams</h3><p>Stacks, trees, gates and schedules that actually move. Finally, something in your life with a clear direction.</p></div>
+  <div class="f"><em>🧒</em><h3>ELI5 in Hinglish</h3><p>For topics your professor explained in 4 minutes and your brain deleted in 3. Simple, funny, and judgement-free.</p></div>
+  <div class="f"><em>✅</em><h3>Progress tracking</h3><p>Mark topics done and watch the bar fill. The only progress you will see this semester. Saved on your device, no account needed.</p></div>
+  <div class="f"><em>🌗</em><h3>Dark and light</h3><p>Dark mode for 2 AM revision, light mode for people who enjoy suffering. Notes, search and PDF export come free.</p></div>
+</div>
+</section>
+
 <footer>
   <span>Progress is saved only on your device. Clear your browser data and it is gone, so do not blame the developer.</span>
   <span>Built by <a href="https://github.com/k4hav" target="_blank" rel="noopener noreferrer"><b>Keshav (k4hav)</b></a>, a CSE student who made this instead of studying.</span>
 </footer>
 </div>
+<script>
+(function(){
+/* typewriter */
+var w=["Learn it once.","Revise it fast.","Write it in the exam.","Forget it after. (Please don't.)"],i=0,j=0,del=false,el=document.getElementById('tw');
+function tick(){var s=w[i];el.innerHTML='<b>'+s.slice(0,j)+'</b>';
+ if(!del&&j<s.length){j++;setTimeout(tick,60)}
+ else if(!del){del=true;setTimeout(tick,1500)}
+ else if(j>0){j--;setTimeout(tick,28)}
+ else{del=false;i=(i+1)%w.length;setTimeout(tick,300)}}
+tick();
+/* marquee */
+var k="class · object · stack · queue · tree · graph · deadlock · paging · K-map · flip-flop · trust · respect · inheritance · thread · BFS · semaphore · multiplexer · harmony · polymorphism · hashing".split(" · ");
+var h=k.map(function(x){return '<span>'+x+'</span>'}).join('');document.getElementById('trk').innerHTML=h+h;
+/* reveal cards + counters */
+var cards=document.querySelectorAll('.card');
+function show(c,d){setTimeout(function(){c.classList.add('in')},d)}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target,[...cards].indexOf(e.target)%3*120);io.unobserve(e.target)}})},{threshold:.15});cards.forEach(function(c){io.observe(c)})}else{cards.forEach(function(c){c.classList.add('in')})}
+document.querySelectorAll('[data-n]').forEach(function(b){var n=+b.dataset.n,t0=null;function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1400,1);b.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)});
+/* cursor glow on cards */
+cards.forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+})();
+</script>
 </body>
 </html>

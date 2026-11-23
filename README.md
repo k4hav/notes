@@ -8,7 +8,7 @@
 ![Subjects](https://img.shields.io/badge/subjects-5-8FA6FF?style=for-the-badge)
 ![Topics](https://img.shields.io/badge/topics-179-FFB347?style=for-the-badge)
 ![No build](https://img.shields.io/badge/build_step-none-FF5A6E?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-6FC3FF?style=for-the-badge)
+![License](https://img.shields.io/badge/license-Apache_2.0-6FC3FF?style=for-the-badge)
 
 **Free courses with simple explanations, animated diagrams, verified code and practice questions.**<br>
 Plain HTML, no login, no ads. Your progress stays on your device.
@@ -149,7 +149,7 @@ Please keep code examples short, make sure they compile, and paste the real outp
 
 ## License
 
-Released under the [MIT License](LICENSE).
+Released under the [Apache License 2.0](LICENSE).
 
 <div align="center">
 
