@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Hub: Free Courses</title>
+<meta name="description" content="Free, simple courses: OOPs, DSA, Operating Systems, Digital Electronics and Universal Human Values.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080d;--card:#0e1019;--text:#EEF0F6;--dim:#9aa3b8;--faint:#626b80;--border:rgba(255,255,255,.1);}
+@media(prefers-color-scheme:light){:root{--bg:#f3f1ec;--card:#fffdf8;--text:#16171d;--dim:#4d5465;--faint:#7b8396;--border:rgba(0,0,0,.12);}.card{--c:var(--l)}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6;min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{padding:72px 0 36px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);letter-spacing:.08em}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,6vw,60px);line-height:1.1;margin:12px 0 14px}
+header p{color:var(--dim);max-width:620px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;padding-bottom:40px}
+.card{--c:var(--d);position:relative;display:flex;flex-direction:column;gap:10px;padding:24px;background:var(--card);border:1px solid var(--border);border-radius:18px;text-decoration:none;color:inherit;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--c)}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:var(--c);box-shadow:0 12px 32px color-mix(in srgb,var(--c) 22%,transparent);outline:none}
+.tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c)}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:22px}
+.card p{color:var(--dim);font-size:14.5px;flex:1}
+.meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--faint)}
+.go{color:var(--c);font-weight:600;font-family:'Space Grotesk',sans-serif}
+footer{border-top:1px solid var(--border);padding:24px 0 40px;color:var(--faint);font-size:13px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer a{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">// study hub</div>
+  <h1>Study. Understand. Pretend you started early.</h1>
+  <p>Free courses with simple explanations and diagrams. No login, no ads. Pick a subject and begin, the syllabus is not going to read itself.</p>
+</header>
+<main class="grid">
+  <a class="card" style="--d:#8FA6FF;--l:#4a5fe0" href="oops.html"><span class="tag">// 01</span><h2>OOPs in Java</h2><p>Classes, inheritance, polymorphism, collections and more. Learn why everything is an object, except the things that are not.</p><div class="meta"><span>47 topics</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#6FC3FF;--l:#0f6fb5" href="dsa.html"><span class="tag">// 02</span><h2>Data Structures &amp; Algorithms</h2><p>Arrays to graphs and DP, with Java, C++ and C code. Because "it works on my machine" is not a time complexity.</p><div class="meta"><span>39 topics</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#FF5A6E;--l:#c2253a" href="os.html"><span class="tag">// 03</span><h2>Operating Systems</h2><p>Processes, scheduling, deadlocks, memory and files. Learn how your computer juggles 100 tabs while you juggle zero plans.</p><div class="meta"><span>37 topics</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#3EE08F;--l:#16844a" href="de.html"><span class="tag">// 04</span><h2>Digital Electronics</h2><p>Gates, K-maps, flip-flops and memories. Everything is 0 or 1, unlike your attendance. Out-of-syllabus topics are marked.</p><div class="meta"><span>28 topics</span><span class="go">Open →</span></div></a>
+  <a class="card" style="--d:#FFB347;--l:#b36a00" href="uhv.html"><span class="tag">// 05</span><h2>Universal Human Values</h2><p>Course 105306, six units on self, family, society, nature and ethics. Yes, you still need to write the answers in the exam.</p><div class="meta"><span>28 topics</span><span class="go">Open →</span></div></a>
+</main>
+<footer>
+  <span>Progress is saved only on your device. Clear your browser data and it is gone, so do not blame the developer.</span>
+  <span>Built by <a href="https://github.com/k4hav" target="_blank" rel="noopener noreferrer"><b>Keshav (k4hav)</b></a>, a CSE student who made this instead of studying.</span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0d16"/><stop offset="1" stop-color="#141026"/></linearGradient>
+<linearGradient id="ttl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8FA6FF"><animate attributeName="stop-color" values="#8FA6FF;#3EE08F;#FFB347;#FF5A6E;#8FA6FF" dur="8s" repeatCount="indefinite"/></stop><stop offset="1" stop-color="#FFB347"><animate attributeName="stop-color" values="#FFB347;#FF5A6E;#8FA6FF;#3EE08F;#FFB347" dur="8s" repeatCount="indefinite"/></stop></linearGradient>
+<clipPath id="r"><rect width="900" height="300" rx="20"/></clipPath>
+</defs>
+<style>
+.chip{opacity:0;animation:fin .6s ease forwards}
+@keyframes fin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pulse{animation:p 2s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.25}}
+.cur{animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.f{animation:fl 6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.sub{opacity:0;animation:fin .8s ease .2s forwards}
+</style>
+<g clip-path="url(#r)">
+<rect width="900" height="300" fill="url(#bg)"/>
+<g opacity=".5" font-family="monospace" font-size="18">
+<text class="f" x="700" y="70" fill="#8FA6FF">{ }</text>
+<text class="f" x="780" y="140" fill="#3EE08F" style="animation-delay:-2s">1010</text>
+<text class="f" x="640" y="170" fill="#FFB347" style="animation-delay:-4s">&lt;/&gt;</text>
+<text class="f" x="820" y="60" fill="#FF5A6E" style="animation-delay:-1s">O(n)</text>
+<text class="f" x="560" y="90" fill="#6FC3FF" style="animation-delay:-3s">AND</text>
+</g>
+<text x="60" y="100" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="58" fill="url(#ttl)">Study Hub</text>
+<rect class="cur" x="362" y="58" width="5" height="52" fill="#EEF0F6"/>
+<text class="sub" x="60" y="150" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#c4cbe0">Simple, visual, free B.Tech courses.</text>
+<text class="sub" x="60" y="182" font-family="monospace" font-size="15" fill="#7b8396" style="animation-delay:.5s">// no login. no ads. no excuses.</text>
+<g class="chip" style="animation-delay:0.6s"><rect x="60" y="215" width="90" height="38" rx="19" fill="none" stroke="#8FA6FF" stroke-width="1.6"/><circle cx="78" cy="234" r="4.5" fill="#8FA6FF" class="pulse" style="animation-delay:0.0s"/><text x="90" y="239" fill="#8FA6FF" font-size="15" font-family="monospace">OOPs</text></g><g class="chip" style="animation-delay:0.85s"><rect x="166" y="215" width="80" height="38" rx="19" fill="none" stroke="#6FC3FF" stroke-width="1.6"/><circle cx="184" cy="234" r="4.5" fill="#6FC3FF" class="pulse" style="animation-delay:0.4s"/><text x="196" y="239" fill="#6FC3FF" font-size="15" font-family="monospace">DSA</text></g><g class="chip" style="animation-delay:1.1s"><rect x="262" y="215" width="70" height="38" rx="19" fill="none" stroke="#FF5A6E" stroke-width="1.6"/><circle cx="280" cy="234" r="4.5" fill="#FF5A6E" class="pulse" style="animation-delay:0.8s"/><text x="292" y="239" fill="#FF5A6E" font-size="15" font-family="monospace">OS</text></g><g class="chip" style="animation-delay:1.35s"><rect x="348" y="215" width="220" height="38" rx="19" fill="none" stroke="#3EE08F" stroke-width="1.6"/><circle cx="366" cy="234" r="4.5" fill="#3EE08F" class="pulse" style="animation-delay:1.2000000000000002s"/><text x="378" y="239" fill="#3EE08F" font-size="15" font-family="monospace">Digital Electronics</text></g><g class="chip" style="animation-delay:1.6s"><rect x="584" y="215" width="80" height="38" rx="19" fill="none" stroke="#FFB347" stroke-width="1.6"/><circle cx="602" cy="234" r="4.5" fill="#FFB347" class="pulse" style="animation-delay:1.6s"/><text x="614" y="239" fill="#FFB347" font-size="15" font-family="monospace">UHV</text></g>
+</g>
+</svg>
