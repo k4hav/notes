@@ -14,12 +14,12 @@ document.documentElement.setAttribute('data-theme',t)})();
 </script>
 <style>
 :root{
-  --bg:#14161f;--text:#EEF0F6;--dim:#9aa3b8;--faint:#6b7389;
+  --ring:#8FA6FF;--bg:#14161f;--text:#EEF0F6;--dim:#9aa3b8;--faint:#6b7389;
   --sh-d:#0a0b11;--sh-l:#202330;--sh-d2:#0c0d14;
   --uv-bg:#171923;--uv-in-d:#0b0c12;--uv-in-l:#222634;--uv-out-d:#0d0e15;--uv-out-l:#212431;--uv-text:#9aa3b8;--uv-title-sh:#0b0c12;
 }
 :root[data-theme="light"]{
-  --bg:#eeeeee;--text:#16171d;--dim:#4d5465;--faint:#7b8396;
+  --ring:#4a5fe0;--bg:#eeeeee;--text:#16171d;--dim:#4d5465;--faint:#7b8396;
   --sh-d:#bdbdbd;--sh-l:#ffffff;--sh-d2:#d4d4d4;
   --uv-bg:#eee;--uv-in-d:#bbb;--uv-in-l:#fff;--uv-out-d:#ddd;--uv-out-l:#fff;--uv-text:#999;--uv-title-sh:#fff;
 }
@@ -148,6 +148,18 @@ footer{padding:30px 0 48px;color:var(--faint);font-size:13.5px;text-align:center
 footer::before{content:"";height:3px;border-radius:3px;margin-bottom:22px;box-shadow:inset 1px 1px 2px var(--sh-d),inset -1px -1px 2px var(--sh-l)}
 footer a{color:var(--text);text-decoration:none;border-bottom:1px dashed var(--faint)}
 footer a:hover{border-bottom-style:solid}
+.devcard{display:flex;align-items:center;gap:22px;max-width:640px;margin:6px auto 0;padding:22px 26px;border-radius:26px;text-align:left;box-shadow:10px 10px 22px var(--sh-d),-10px -10px 22px var(--sh-l)}
+.av{flex:none;position:relative;width:68px;height:68px;border-radius:50%;padding:2px;background:var(--ring)}
+.av span{display:flex;width:100%;height:100%;align-items:center;justify-content:center;border-radius:50%;background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700}
+.di{flex:1;min-width:0;display:grid;gap:2px}
+.di small{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--faint)}
+.di strong{font-family:'Space Grotesk',sans-serif;font-size:26px;line-height:1.15;color:var(--text)}
+.di em{font-style:normal;font-size:14px;color:var(--dim)}
+footer .gh{flex:none;display:inline-flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--text);border:0;padding:12px 20px;border-radius:14px;box-shadow:6px 6px 14px var(--sh-d),-6px -6px 14px var(--sh-l);transition:transform .25s,box-shadow .25s}
+footer .gh:hover{transform:translateY(-3px)}
+footer .gh:active{box-shadow:inset 4px 4px 9px var(--sh-d),inset -4px -4px 9px var(--sh-l);transform:none}
+footer .note{margin-top:22px;font-size:12.5px}
+@media(max-width:560px){.devcard{flex-direction:column;text-align:center;gap:14px}}
 @media(max-width:900px){.feat{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.card,.card:nth-child(n+4){grid-column:span 1}.card:last-child{grid-column:span 2}.stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.grid,.feat{grid-template-columns:1fr}.card,.card:nth-child(n+4),.card:last-child{grid-column:span 1}header{padding-top:84px}.uv-card{max-width:260px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}.bar i{width:var(--w)}}
@@ -240,8 +252,16 @@ footer a:hover{border-bottom-style:solid}
 </section>
 
 <footer>
-  <span>Progress is saved only on your device. Clear your browser data and it is gone, so do not blame the developer.</span>
-  <span>Built by <a href="https://github.com/k4hav" target="_blank" rel="noopener noreferrer"><b>Keshav (k4hav)</b></a>, a CSE student who made this instead of studying.</span>
+  <div class="devcard">
+    <div class="av"><span>K</span></div>
+    <div class="di">
+      <small>DEVELOPER</small>
+      <strong>Keshav</strong>
+      <em>CSE student who made this instead of studying.</em>
+    </div>
+    <a class="gh" href="https://github.com/k4hav" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.2 1.87.86 2.33.65.07-.52.28-.86.51-1.06-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+  </div>
+  <span class="note">Progress is saved only on your device. Clear your browser data and it is gone, so do not blame the developer.</span>
 </footer>
 </div>
 <script>
