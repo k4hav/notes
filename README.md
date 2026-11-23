@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Study Hub: OOPs, DSA, OS, Digital Electronics and UHV" width="100%">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24,6&height=210&section=header&text=Study%20Hub&fontSize=68&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=OOPs%20%C2%B7%20DSA%20%C2%B7%20OS%20%C2%B7%20Digital%20Electronics%20%C2%B7%20UHV&descSize=18&descAlignY=60" alt="Study Hub" width="100%">
+
+<a href="https://k4hav.github.io/notes/"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=19&duration=2600&pause=900&color=8FA6FF&center=true&vCenter=true&width=620&height=40&lines=Study.+Understand.;Pretend+you+started+early.;Learn+it+once.+Revise+it+fast.;No+login.+No+ads.+No+excuses." alt="Study. Understand. Pretend you started early."></a>
 
 <br>
 
