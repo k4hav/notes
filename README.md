@@ -155,6 +155,6 @@ Released under the [Apache License 2.0](LICENSE).
 
 <div align="center">
 
-Made by [Keshav](https://github.com/k4hav) | [Portfolio](https://k4hav.vercel.app)
+Made by [Keshav](https://github.com/k4hav)
 
 </div>
